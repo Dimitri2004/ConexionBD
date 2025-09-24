@@ -4,8 +4,12 @@ import java.sql.SQLException;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
+public class ConexionBD {
+    public static void main(String[] args){
+        conexion();
+        System.out.println(conexion());
+    }
+    public static Connection conexion() {
         String url = "jdbc:postgresql://10.0.2.15:5432/probas"; // Reemplaza con tu URL
         String usuario = "postgres";                           // Reemplaza con tu usuario
         String contrasinal = "admin";                   // Reemplaza con tu contraseña
@@ -16,20 +20,9 @@ public class Main {
             conn = DriverManager.getConnection(url, usuario, contrasinal);
             System.out.println("Conexión exitosa a la base de datos.");
         } catch (SQLException e) {
-            System.out.println("Error al conectar a la base de datos:");
+            System.out.println("Error al conectar a la base de datos:"+ e.getMessage());
             e.printStackTrace();
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                    System.out.println("Conexión cerrada.");
-                } catch (SQLException e) {
-                    System.out.println("Error al cerrar la conexión:");
-                    e.printStackTrace();
-                }
-            }
         }
-
-
+        return conn;
         }
     }
