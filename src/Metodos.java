@@ -24,6 +24,7 @@ public class Metodos {
             System.out.println("Error al crear entrada: " + e.getMessage());
         }
     }
+    //Borra la entrada asignada por nombre
     public static void borrarEntrada(ConexionBD conn, String nome){
         String sql = "DELETE FROM anime WHERE nome = ?";
         try(PreparedStatement pstmt = conn.getConexion().prepareStatement(sql)){
@@ -35,6 +36,7 @@ public class Metodos {
             System.out.println("Error al borrar entrada: " + e.getMessage());
         }
     }
+    //Actualiza los datos con la entrada asignad apor nombre
     public static void actualixarEntrada(ConexionBD conn, String nome, String novaDescricion){
         String sql = "UPDATE anime SET descripcion = ? WHERE nome = ?";
         try(PreparedStatement pstmt = conn.getConexion().prepareStatement(sql)){
@@ -46,6 +48,7 @@ public class Metodos {
             System.out.println("Error al actualizar entrada: " + e.getMessage());
         }
     }
+    //Mustra la consulta dada por nombre
     public static void  leerEntrada(ConexionBD conn){
         String sql="SELECT * FROM anime";
         try (PreparedStatement pstmt= conn.getConexion().prepareStatement(sql)){
