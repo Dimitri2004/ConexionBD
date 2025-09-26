@@ -24,4 +24,8 @@ public class ConexionBD {
         }
         return conn;
         }
+
+    public Connection getConexion() {
+        return conexion();
     }
+}
