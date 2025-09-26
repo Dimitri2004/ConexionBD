@@ -6,7 +6,6 @@ import java.sql.SQLException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class ConexionBD {
     public static void main(String[] args){
-        conexion();
         System.out.println(conexion());
     }
     public static Connection conexion() {
